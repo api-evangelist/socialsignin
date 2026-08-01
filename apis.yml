@@ -1,7 +1,25 @@
 aid: socialsignin
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/socialsignin.png
 name: SocialSign.in
-description: SocialSign.in is a company surfaced as a portfolio company of techstars and added to the
-  API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: SocialSign.in is a guest WiFi marketing platform that turns venue Wi-Fi
+  login into a customer-acquisition and engagement channel. When guests connect to
+  free Wi-Fi through branded splash pages, the platform captures opt-in contact data
+  (email, phone, profile), measures visit frequency and dwell time, and syncs profiles
+  to CRM and email/SMS marketing tools to trigger targeted campaigns across retail,
+  hospitality, sports and entertainment, healthcare, and commercial real estate venues.
+  The company exposes no public developer API, SDK, MCP server, or documentation surface
+  as of this enrichment pass.
 url: https://raw.githubusercontent.com/api-evangelist/socialsignin/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -11,9 +29,16 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
+- Guest WiFi
+- WiFi Marketing
+- Captive Portal
+- Customer Data Platform
+- Location Analytics
+- Retail Media
+- Marketing
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -22,4 +47,21 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
-  url: https://socialsign.in/
+  url: https://socialsignin.com/
+- type: About
+  url: https://socialsignin.com/about
+- type: Blog
+  url: https://socialsignin.com/articles
+- type: PrivacyPolicy
+  url: https://socialsignin.com/privacy
+- type: Support
+  url: https://socialsignin.com/contact
+- type: Login
+  url: https://c.socialsign.in/client/
+- type: Partners
+  url: https://socialsignin.com/partners
+x-enrichment:
+  date: '2026-07-21'
+  status: minimal
+  artifacts_added: 0
+  pass: local-v1
