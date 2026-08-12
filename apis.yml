@@ -1,25 +1,38 @@
 aid: socialsignin
 accessModel:
-  pricing: unknown
-  onboarding: unknown
+  pricing: paid
+  onboarding: self-service
   trial: false
   try_now: false
   public: false
-  label: Unknown
-  confidence: low
-  source: []
-  generated: '2026-07-22'
-  method: derived
+  label: Paid, self-service product signup; no public API
+  confidence: medium
+  source:
+  - https://socialsignin.com/go
+  - https://socialsignin.com/go/checkout/
+  generated: '2026-08-12'
+  method: searched
+  note: >-
+    SocialSign.in Go publishes list pricing and a self-serve checkout, so product
+    onboarding is self-service and paid. API access is a separate question and is
+    NOT public — see x-coverage.
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/socialsignin.png
 name: SocialSign.in
-description: SocialSign.in is a guest WiFi marketing platform that turns venue Wi-Fi
+description: >-
+  SocialSign.in is a guest WiFi marketing platform that turns venue Wi-Fi
   login into a customer-acquisition and engagement channel. When guests connect to
   free Wi-Fi through branded splash pages, the platform captures opt-in contact data
   (email, phone, profile), measures visit frequency and dwell time, and syncs profiles
   to CRM and email/SMS marketing tools to trigger targeted campaigns across retail,
   hospitality, sports and entertainment, healthcare, and commercial real estate venues.
-  The company exposes no public developer API, SDK, MCP server, or documentation surface
-  as of this enrichment pass.
+  It sells two products: the enterprise platform, sold through a contact-sales motion,
+  and SocialSign.in Go, a self-serve packaged version with published per-location pricing.
+  The company publishes no developer portal, no API reference, and no machine-readable
+  specification of any kind; its product documentation lives in a public Zendesk help
+  center covering portal setup and CRM/ESP connector configuration rather than any
+  programmable interface. A JSON-emitting API root does exist at c.socialsign.in/api/
+  inside the authenticated customer console, and the Enterprise tier advertises
+  "Advanced integrations" and a "Data mart", but neither is documented publicly.
 url: https://raw.githubusercontent.com/api-evangelist/socialsignin/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -29,7 +42,7 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-21'
+modified: '2026-08-12'
 tags:
 - Company
 - Guest WiFi
@@ -46,12 +59,34 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/socialsignin-domain-security.yml
+- type: LLMsTxt
+  url: llms/socialsignin-llms.txt
+- type: Plans
+  url: plans/socialsignin-plans-pricing.yml
+- type: Conformance
+  url: conformance/socialsignin-conformance.yml
+- type: Compliance
+  url: conformance/socialsignin-conformance.yml
 - type: Website
   url: https://socialsignin.com/
 - type: About
   url: https://socialsignin.com/about
+- type: Documentation
+  url: https://socialsigninwifi.zendesk.com/hc/en-us
+- type: FAQ
+  url: https://socialsigninwifi.zendesk.com/hc/en-us/articles/47737919206427-FAQs
+- type: Integrations
+  url: https://socialsignin.com/resources/integrations
+- type: Pricing
+  url: https://socialsignin.com/go
+- type: SignUp
+  url: https://socialsignin.com/go/checkout/
 - type: Blog
   url: https://socialsignin.com/articles
+- type: TermsOfService
+  url: https://socialsign.in/terms
 - type: PrivacyPolicy
   url: https://socialsignin.com/privacy
 - type: Support
@@ -60,8 +95,33 @@ common:
   url: https://c.socialsign.in/client/
 - type: Partners
   url: https://socialsignin.com/partners
+- type: LinkedIn
+  url: https://www.linkedin.com/company/socialsign-in
 x-enrichment:
-  date: '2026-07-21'
+  date: '2026-08-12'
   status: minimal
-  artifacts_added: 0
+  artifacts_added: 6
   pass: local-v1
+x-coverage:
+  state: gated
+  reason: customer-only-docs
+  detail: >-
+    SocialSign.in serves a live JSON API root at https://c.socialsign.in/api/ — it
+    returns 200 with the placeholder body "API index" and every unknown child path
+    answers application/json {"error": "page not found"} — but it sits inside the
+    authenticated customer console at c.socialsign.in/client/, the 26-page public
+    sitemap contains no developer or reference page, and the only programmatic
+    capabilities the company names ("Advanced integrations", "Data mart") are
+    features of the unpriced Enterprise tier.
+  evidence:
+  - url: https://c.socialsign.in/api/
+    status: 200
+  - url: https://c.socialsign.in/api/v1
+    status: 404
+  - url: https://c.socialsign.in/client/
+    status: 200
+  - url: https://socialsignin.com/openapi.json
+    status: 404
+  - url: https://socialsignin.com/sitemap-pages.xml
+    status: 200
+  checked: '2026-08-12'

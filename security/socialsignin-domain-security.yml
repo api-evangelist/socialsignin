@@ -1,0 +1,47 @@
+generated: '2026-08-12'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: socialsignin.com
+  https: true
+  tls_version: TLSv1.2
+  cert_expires: Oct 14 20:11:08 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+- host: socialsign.in
+  https: true
+  tls_version: TLSv1.2
+  cert_expires: Sep 21 16:22:47 2026 GMT
+  hsts: false
+  hsts_max_age: null
+- host: c.socialsign.in
+  https: true
+  tls_version: TLSv1.2
+  cert_expires: Sep 21 16:22:47 2026 GMT
+  hsts: false
+  hsts_max_age: null
+  note: >-
+    Customer console host. Sends X-Frame-Options sameorigin, X-Content-Type-Options
+    nosniff and X-XSS-Protection, but no Strict-Transport-Security.
+domains:
+- domain: socialsignin.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: none
+- domain: socialsign.in
+  dnssec: false
+  caa:
+  - 128 issue "godaddy.com"
+  spf: true
+  dmarc: true
+  dmarc_policy: none
+  note: >-
+    SPF includes _spf.google.com, mail.zendesk.com, sendgrid.net,
+    spf.mandrillapp.com and a HubSpot sending domain. DMARC rua reports to
+    EasyDMARC. Probed 2026-08-12.
+x-probe-note: >-
+  socialsign.in and c.socialsign.in were probed by hand on 2026-08-12 and merged
+  into this file; probe-domain-security.py only saw socialsignin.com because the
+  other hosts were not yet named as an apis.yml host at run time.

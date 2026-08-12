@@ -1,0 +1,77 @@
+generated: '2026-08-12'
+method: probed
+source: live probes of /.well-known/ on every SocialSign.in host
+note: >-
+  Every /.well-known/ path returned 404 on every host. No WellKnown or SecurityTxt
+  pointer is wired into apis.yml — this file records a measured ABSENCE, not a
+  served surface. SocialSign.in does serve /llms.txt and /robots.txt at the site
+  root (captured separately in llms/), and robots.txt explicitly names GPTBot,
+  Claude-Web, PerplexityBot, Applebot-Extended and GoogleOther with `Allow: /`
+  plus an `LLMs:` line pointing at the llms.txt — an agent-facing posture built
+  at the root rather than under /.well-known/.
+hosts:
+  - host: https://socialsignin.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: https://socialsign.in
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: https://c.socialsign.in
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+root_level_agent_files:
+  - path: https://socialsignin.com/llms.txt
+    status: 200
+    content_type: text/plain
+    file: ../llms/socialsignin-llms.txt
+  - path: https://socialsignin.com/llms-full.txt
+    status: 200
+    content_type: text/plain
+    note: >-
+      Not committed. `*-llms-full.txt` is gitignored across the network because
+      verbatim docs dumps routinely embed vendor example tokens.
+  - path: https://socialsignin.com/robots.txt
+    status: 200
+    content_type: text/plain
+  - path: https://socialsignin.com/sitemap.xml
+    status: 200
+    content_type: application/xml

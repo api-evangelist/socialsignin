@@ -1,0 +1,104 @@
+generated: '2026-08-12'
+method: searched
+source: https://socialsignin.com/go
+sources:
+  - https://socialsignin.com/go
+  - https://socialsignin.com/privacy
+  - https://socialsigninwifi.zendesk.com/hc/en-us/articles/19068807876635-GDPR-and-Data-Protection-Compliance
+  - https://socialsignin.com/resources/tech-overview
+description: >-
+  SocialSign.in publishes no API contract, so no API-level standards conformance
+  can be asserted — every technical entry below is a recorded FALSE with the
+  reason, not an untested field. What the company does publish is a data-protection
+  and security compliance posture, stated in its own marketing and help-center
+  copy. Those claims are captured under compliance_programs with the exact source.
+standards:
+  - id: openapi-3
+    conforms: false
+    evidence: >-
+      No OpenAPI or Swagger document is served on any host. /openapi.json,
+      /openapi.yaml, /swagger.json, /v1/openapi.json, /api-docs, /docs and
+      /redoc all 404 on socialsignin.com, socialsign.in and c.socialsign.in.
+  - id: graphql
+    conforms: false
+    evidence: /graphql returns 404 on c.socialsign.in; no GraphQL surface advertised.
+  - id: asyncapi
+    conforms: false
+    evidence: No event, streaming or webhook surface is documented.
+  - id: oauth2
+    conforms: false
+    evidence: >-
+      /.well-known/oauth-authorization-server 404s on every host. The customer
+      console at c.socialsign.in/client/ uses a session login form plus a
+      Facebook authorize route; no OAuth authorization server is exposed to
+      third-party developers.
+  - id: oidc
+    conforms: false
+    evidence: /.well-known/openid-configuration 404s on every host.
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: >-
+      c.socialsign.in/api/* returns a bare custom envelope
+      {"error": "page not found"} as application/json, not application/problem+json.
+  - id: rfc9116-security-txt
+    conforms: false
+    evidence: /.well-known/security.txt 404s on socialsignin.com, socialsign.in and c.socialsign.in.
+  - id: https-only
+    conforms: true
+    evidence: >-
+      All hosts serve over TLS 1.2 with a valid chain; socialsignin.com sends
+      Strict-Transport-Security with max-age=31536000. See
+      security/socialsignin-domain-security.yml.
+  - id: llms-txt
+    conforms: true
+    evidence: >-
+      https://socialsignin.com/llms.txt returns 200 text/plain (1,570 bytes) with
+      a canonical URL, description, Preferred/Avoid URL lists, summary aliases and
+      a contact — a well-formed llms.txt. Saved verbatim to llms/socialsignin-llms.txt.
+  - id: robots-ai-crawler-policy
+    conforms: true
+    evidence: >-
+      robots.txt carries an explicit "# AI crawlers welcome" block naming GPTBot,
+      Claude-Web, PerplexityBot, Applebot-Extended and GoogleOther with Allow: /,
+      plus an `LLMs:` directive pointing at the llms.txt and an IndexNow key.
+  - id: idempotency
+    conforms: false
+    evidence: No idempotency mechanism is documented; no API reference exists.
+  - id: pagination
+    conforms: false
+    evidence: No pagination convention is documented; no API reference exists.
+  - id: rate-limiting
+    conforms: false
+    evidence: >-
+      No published limits and no rate-limit response headers observed. See
+      rate-limits/socialsignin-rate-limits.yml.
+compliance_programs:
+  - SOC 2
+  - GDPR
+  - CCPA
+compliance_source: https://socialsignin.com/go
+compliance_evidence:
+  - claim: SOC 2 Certified
+    quote: 'SOC 2 Certified • Fully GDPR/CCPA Compliant'
+    url: https://socialsignin.com/go
+    status: 200
+  - claim: SOC 2-certified infrastructure
+    quote: 'Trusted & Secure — Built on SOC 2-certified infrastructure your IT and legal teams can trust.'
+    url: https://socialsignin.com/go
+    status: 200
+  - claim: GDPR / CCPA / SOC 2 data handling
+    quote: >-
+      Is my data secure? Yes. Every login is encrypted, stored securely, and
+      fully compliant with GDPR, CCPA, and SOC 2 standards.
+    url: https://socialsignin.com/go
+    status: 200
+  - claim: GDPR and Data Protection Compliance article
+    url: https://socialsigninwifi.zendesk.com/hc/en-us/articles/19068807876635-GDPR-and-Data-Protection-Compliance
+    status: 200
+compliance_note: >-
+  These are self-asserted claims made in the company's own marketing and
+  help-center copy. SocialSign.in publishes no trust center, no security portal
+  and no downloadable report — trust.socialsignin.com, security.socialsignin.com,
+  /security, /trust and /compliance were all probed and none resolved or returned
+  a document. The SOC 2 report type (Type I vs Type II) and audit period are not
+  stated anywhere public.

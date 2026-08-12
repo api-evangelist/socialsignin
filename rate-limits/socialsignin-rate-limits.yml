@@ -1,0 +1,42 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: SocialSign.in
+providerId: socialsignin
+generated: '2026-08-12'
+created: '2026-08-12'
+modified: '2026-08-12'
+method: searched
+source: https://socialsignin.com/ + https://socialsigninwifi.zendesk.com/hc/en-us
+sources:
+  - https://socialsignin.com/resources/tech-overview
+  - https://socialsigninwifi.zendesk.com/hc/en-us
+  - https://socialsignin.com/sitemap-pages.xml
+description: >-
+  No rate limits are published anywhere on the SocialSign.in public surface.
+  This is an honest zero, not an unchecked field: the full page sitemap was
+  walked (26 pages, no developer or reference page among them), the Zendesk
+  help center was searched via its public Help Center search API for "API",
+  "api key", "webhook", "developer", "integration" and "export", and none of
+  the returned articles document an API contract, quota, or throttle. The only
+  reachable API surface — https://c.socialsign.in/api/ — returns a bare
+  placeholder body and emits no RateLimit-*, X-RateLimit-* or Retry-After
+  headers on an unauthenticated request.
+limit_count: 0
+limits: []
+headers: {}
+responseCodes: {}
+observed:
+  - url: https://c.socialsign.in/api/
+    status: 200
+    rate_limit_headers: []
+    note: Body is the literal string "API index". No throttling signal returned.
+  - url: https://c.socialsign.in/api/v1
+    status: 404
+    rate_limit_headers: []
+    note: 'Returns application/json {"error": "page not found"} — a real JSON API
+      error envelope, but no documented routes and no rate-limit signalling.'
+note: >-
+  NO RateLimits pointer is wired into apis.yml. This file records a measured
+  absence; wiring the canonical pointer would credit SocialSign.in with a
+  runtime rate-limit signal it does not publish.

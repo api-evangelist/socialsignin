@@ -1,0 +1,40 @@
+# SocialSign.in
+Canonical: https://socialsignin.com
+Description: Guest Wi-Fi marketing platform resources, product pages, and implementation guidance.
+
+Preferred:
+- https://socialsignin.com/
+- https://socialsignin.com/about
+- https://socialsignin.com/go
+- https://socialsignin.com/go/choosing-the-right-hardware/
+- https://socialsignin.com/what-is-wifi-marketing
+- https://socialsignin.com/demo
+- https://socialsignin.com/contact
+- https://socialsignin.com/resources/tech-overview
+- https://socialsignin.com/resources/integrations
+- https://socialsignin.com/resources/network-equipment
+- https://socialsignin.com/solutions/retail
+- https://socialsignin.com/solutions/sports
+- https://socialsignin.com/solutions/cre
+- https://socialsignin.com/solutions/hospitality
+- https://socialsignin.com/solutions/healthcare
+- https://socialsignin.com/solutions/co-op-wifi-media
+- https://socialsignin.com/solutions/retail-media
+- https://socialsignin.com/solutions/advertising
+- https://socialsignin.com/go/for-digital-screens
+- https://socialsignin.com/articles
+- https://socialsignin.com/privacy
+- https://socialsignin.com/watch-demo
+- https://socialsignin.com/book-demo
+- https://socialsignin.com/partners
+- https://socialsignin.com/about-wifi-calculator
+
+Avoid:
+- https://socialsignin.com/articles?offset=*
+- https://socialsignin.com/go/checkout/*
+
+Summary aliases: https://socialsignin.com/llm.txt, https://socialsignin.com/llm-summary.txt
+Extended: https://socialsignin.com/llms-full.txt, https://socialsignin.com/llm-extended.txt
+
+Contact:
+- https://socialsignin.com/contact

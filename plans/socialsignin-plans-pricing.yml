@@ -1,0 +1,110 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: SocialSign.in
+providerId: socialsignin
+generated: '2026-08-12'
+created: '2026-08-12'
+modified: '2026-08-12'
+method: searched
+source: https://socialsignin.com/go
+sources:
+  - https://socialsignin.com/go
+  - https://socialsignin.com/go/checkout/
+  - https://socialsignin.com/contact
+tags:
+  - Guest WiFi
+  - WiFi Marketing
+  - Captive Portal
+description: >-
+  SocialSign.in publishes self-serve pricing only for SocialSign.in Go, the
+  packaged guest Wi-Fi marketing product. Pricing is per venue location and is
+  quoted as an annually-billed monthly rate; the page carries a Monthly/Annual
+  toggle whose annual position is the one that renders a figure, alongside the
+  claim "Save 15% with annual billing". The enterprise platform (the product
+  this profile is otherwise about) publishes no price at all — it is a
+  contact-sales motion, and the API-adjacent capabilities ("Advanced
+  integrations", "Data mart") sit in that unpriced tier.
+plan_count: 3
+currency: USD
+billing_period: annual
+plans:
+  - id: socialsignin-go-essentials
+    name: Essentials
+    type: subscription
+    description: Best for a single location.
+    price: '39.99'
+    currency: USD
+    unit: month
+    billing: annual
+    note: Listed as "$39.99 /mo billed annually" on https://socialsignin.com/go.
+    limits:
+      - label: Locations
+        value: 1
+      - label: Guest logins
+        value: unlimited
+    features:
+      - Unlimited logins
+      - Email + name capture
+      - Opt-in compliance
+      - Basic analytics dashboard
+      - Branded Wi-Fi portal
+      - Email support
+    signup: https://socialsignin.com/go/checkout/?plan=annual
+  - id: socialsignin-go-multi-location
+    name: Multi-location
+    type: subscription
+    description: >-
+      Same feature set as Essentials, priced per location with an on-page
+      calculator. The page's worked example is 3 locations = $119.97/mo,
+      billed annually at $1,439.64/yr.
+    price: '39.99'
+    currency: USD
+    unit: location/month
+    billing: annual
+    limits:
+      - label: Locations
+        value: metered
+        note: Chosen on the pricing calculator; price scales linearly per location.
+      - label: Guest logins
+        value: unlimited
+    features:
+      - Unlimited logins
+      - Email + name capture
+      - Opt-in compliance
+      - Basic analytics dashboard
+      - Branded Wi-Fi portal
+      - Email support
+    signup: https://socialsignin.com/go/checkout/?plan=annual
+  - id: socialsignin-enterprise
+    name: Enterprise
+    type: contact-sales
+    description: Custom pricing for scale. No figure is published.
+    price: null
+    currency: null
+    limits:
+      - label: Locations
+        value: unlimited
+      - label: Guest logins
+        value: unlimited
+    features:
+      - Unlimited locations
+      - Unlimited logins
+      - Advanced integrations
+      - Data mart
+      - Advanced analytics & reporting
+      - Dedicated account manager
+      - Priority support
+    signup: https://socialsignin.com/contact
+    note: >-
+      "Data mart" and "Advanced integrations" are the only published references
+      to programmatic data access anywhere on the SocialSign.in surface, and
+      both are gated behind this unpriced tier. See x-coverage in apis.yml.
+commitment:
+  contract: none
+  cancellation: Cancel anytime; "No contracts" stated on the pricing page.
+  discount: Save 15% with annual billing (stated on page).
+gaps:
+  - No monthly-billed figure renders on the page; only the annual rate is shown.
+  - No overage, quota or metered-usage pricing is published for any tier.
+  - No API-access price, seat price, or data-mart price is published.
