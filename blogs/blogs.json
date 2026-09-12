@@ -2,20 +2,20 @@
   "repo": "socialsignin",
   "feeds": [
     {
-      "source": "https://socialsignin.com/about",
-      "feed_url": "https://socialsignin.com/about",
+      "source": "https://socialsignin.com/go/checkout/",
+      "feed_url": "https://socialsignin.com/go/checkout/",
       "title": "",
       "saved": 0,
       "method": "none"
     },
     {
-      "source": "https://socialsignin.com/go/checkout/",
-      "feed_url": "https://socialsignin.com/go/checkout/",
+      "source": "https://socialsignin.com/about",
+      "feed_url": "https://socialsignin.com/about",
       "title": "",
       "saved": 0,
       "method": "none"
     }
   ],
   "post_count": 0,
-  "fetched": "2026-08-30T22:33:40Z"
+  "fetched": "2026-09-06T19:17:18Z"
 }
