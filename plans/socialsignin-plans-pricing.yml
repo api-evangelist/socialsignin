@@ -108,3 +108,32 @@ gaps:
   - No monthly-billed figure renders on the page; only the annual rate is shown.
   - No overage, quota or metered-usage pricing is published for any tier.
   - No API-access price, seat price, or data-mart price is published.
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - negotiated
+  - subscription
+  units:
+  - period
+  plans:
+  - name: Essentials
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - period
+    periods: []
+  - name: Multi-location
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - other
+    periods: []
+  - name: Enterprise
+    access: negotiated
+    model: negotiated
+    model_how: stated
+    units: []
+    periods: []
